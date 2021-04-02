@@ -33,10 +33,11 @@ def scrape_info():
     sloth_img = url + relative_image_path
 
     # Store data in a dictionary
-    costa_data = {
-        "sloth_img": sloth_img,
-        "min_temp": min_temp,
-        "max_temp": max_temp
+    scraped_data = {
+        "news_title": news_title,
+        "paragraph_text": paragraph_text,
+        "featured_image_url": featured_image_url, 
+        "mars_info_html_table": mars_info_html_table
     }
 
     # Close the browser after scraping
