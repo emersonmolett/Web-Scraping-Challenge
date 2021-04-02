@@ -9,30 +9,41 @@ def scrape_info():
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
 
-    # Visit visitcostarica.herokuapp.com
-    url = "https://visitcostarica.herokuapp.com/"
-    browser.visit(url)
+    # Mars News Site
+    mars_news_site = "https://redplanetscience.com/"
+    browser.visit(mars_news_site)
 
     time.sleep(1)
 
     # Scrape page into Soup
-    html = browser.html
-    soup = bs(html, "html.parser")
+    mars_news_site = browser.html
+    soup = bs(mars_news_site, "lxml")
 
-    # Get the average temps
-    avg_temps = soup.find('div', id='weather')
+    # Get the latest news title 
+    news_title = soup.find("div", class_="content_title").text
 
-    # Get the min avg temp
-    min_temp = avg_temps.find_all('strong')[0].text
+    # Get the latest paragraph 
+    paragraph_text = soup.find("div", class_="article_teaser_body").text
 
     # Get the max avg temp
-    max_temp = avg_temps.find_all('strong')[1].text
+    print(f"Paragraph:\n\n{paragraph_text}")
 
-    # BONUS: Find the src for the sloth image
-    relative_image_path = soup.find_all('img')[2]["src"]
-    sloth_img = url + relative_image_path
+    # Mars Image
+    jpl_images_site = "https://spaceimages-mars.com/"
+    browser.visit(jpl_images_site)
+    time.sleep(1)
 
-    # Store data in a dictionary
+    jpl_image = browser.html
+    soup = bs(jpl_image, "html.parser") 
+
+    jpl_soup = soup.find("img", class_="headerimage")["src"]
+
+    jpl_images_site + jpl_soup 
+
+    featured_image_url = jpl_images_site + jpl_soup 
+    featured_image_url
+
+      # Store data in a dictionary
     scraped_data = {
         "news_title": news_title,
         "paragraph_text": paragraph_text,
@@ -44,4 +55,4 @@ def scrape_info():
     browser.quit()
 
     # Return results
-    return costa_data
+    return scraped_data
