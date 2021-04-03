@@ -49,7 +49,7 @@ def scrape_info():
         "paragraph_text": paragraph_text,
         "featured_image_url": featured_image_url, 
         "mars_info_html_table": mars_info_html_table
-        "hemi_dict": 
+        "hemi_dict": hemi_dict
     }
 
     # Close the browser after scraping
