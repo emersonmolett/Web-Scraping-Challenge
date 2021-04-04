@@ -57,12 +57,27 @@ def scrape_info():
     featured_image_url = jpl_images_site + jpl_soup 
     featured_image_url
 
+    # MARS FACTS
 
+    # Document url - need for Galaxy Facts Mars Facts
+    mars_fact_url = "https://galaxyfacts-mars.com/"
+    browser.visit(mars_fact_url)
 
+    # Start pulling in tables info
+    tables = pd.read_html(mars_fact_url)
 
+    # Only pull in 1 table 
+    mars_facts_table = tables[1]
 
+    # Name cols
+    mars_facts_table.columns = ["Attribute", "Value"]
 
+    # Set index to Attribute col
+    mars_facts_table.set_index("Attribute", inplace=True)
 
+    # Use Pandas to convert the data to a HTML table string.
+    mars_html_table = mars_facts_table.to_html()
+    mars_html_table
 
 
 
