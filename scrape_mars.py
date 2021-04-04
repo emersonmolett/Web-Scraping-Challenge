@@ -1,6 +1,10 @@
-from splinter import Browser
-from bs4 import BeautifulSoup as bs
+import pandas as pd
 import time
+import requests
+import os
+import pymongo 
+from bs4 import BeautifulSoup as bs
+from splinter import Browser 
 from webdriver_manager.chrome import ChromeDriverManager
 
 
@@ -9,10 +13,15 @@ def scrape_info():
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
 
-    # Mars News Site
+    # NASA MARS NEWS
+
+    # Document url - need for Mars Planet Science website 
     mars_news_site = "https://redplanetscience.com/"
+
+    # Browser to launch 
     browser.visit(mars_news_site)
 
+    # Sleep - allowing time for data to load 
     time.sleep(1)
 
     # Scrape page into Soup
@@ -27,6 +36,12 @@ def scrape_info():
 
     # Get the max avg temp
     print(f"Paragraph:\n\n{paragraph_text}")
+
+
+
+
+
+
 
     # Mars Image
     jpl_images_site = "https://spaceimages-mars.com/"
@@ -43,13 +58,16 @@ def scrape_info():
     featured_image_url = jpl_images_site + jpl_soup 
     featured_image_url
 
+
+    mars_info_html_table = []
+    hemi_dicts = []
       # Store data in a dictionary
     scraped_data = {
         "news_title": news_title,
         "paragraph_text": paragraph_text,
         "featured_image_url": featured_image_url, 
-        "mars_info_html_table": mars_info_html_table
-        "hemi_dict": hemi_dict
+        "mars_info_html_table": mars_info_html_table,
+        "hemi_dicts": hemi_dicts
     }
 
     # Close the browser after scraping
