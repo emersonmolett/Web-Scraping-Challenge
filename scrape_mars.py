@@ -95,33 +95,33 @@ def scrape_info():
 
     # Start for loop 
     for i in range(1,9,2):
-    hemi_dict = {}
+      hemi_dict = {}
     
-    browser.visit(mars_hemispheres)
-    time.sleep(1)
-    hemispheres_html = browser.html
-    hemispheres_soup = bs(hemispheres_html, 'html.parser')
-    hemi_name_links = hemispheres_soup.find_all('a', class_='product-item')
-    hemi_name = hemi_name_links[i].text.strip('Enhanced')
+      browser.visit(mars_hemispheres)
+      time.sleep(1)
+      hemispheres_html = browser.html
+      hemispheres_soup = bs(hemispheres_html, 'html.parser')
+      hemi_name_links = hemispheres_soup.find_all('a', class_='product-item')
+      hemi_name = hemi_name_links[i].text.strip('Enhanced')
     
-    detail_links = browser.find_by_css('a.product-item')
-    detail_links[i].click()
-    time.sleep(1)
-    browser.find_link_by_text('Sample').first.click()
-    time.sleep(1)
-    browser.windows.current = browser.windows[-1]
-    hemi_img_html = browser.html
-    browser.windows.current = browser.windows[0]
-    browser.windows[-1].close()
+      detail_links = browser.find_by_css('a.product-item')
+      detail_links[i].click()
+      time.sleep(1)
+      browser.find_link_by_text('Sample').first.click()
+      time.sleep(1)
+      browser.windows.current = browser.windows[-1]
+      hemi_img_html = browser.html
+      browser.windows.current = browser.windows[0]
+      browser.windows[-1].close()
     
-    hemi_img_soup = bs(hemi_img_html, 'html.parser')
-    hemi_img_path = hemi_img_soup.find('img')['src']
+      hemi_img_soup = bs(hemi_img_html, 'html.parser')
+      hemi_img_path = hemi_img_soup.find('img')['src']
 
-    hemi_dict['title'] = hemi_name.strip()
+      hemi_dict['title'] = hemi_name.strip()
 
-    hemi_dict['img_url'] = hemi_img_path
+      hemi_dict['img_url'] = hemi_img_path
 
-    hemi_dicts.append(hemi_dict)
+      hemi_dicts.append(hemi_dict)
 
 
       # Store data in a dictionary
