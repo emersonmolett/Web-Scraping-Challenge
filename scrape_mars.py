@@ -38,14 +38,13 @@ def scrape_info():
     print(f"Paragraph:\n\n{paragraph_text}")
 
 
+    # JPL MARS SPACE IMAGES - FEATURED IMAGE
 
-
-
-
-
-    # Mars Image
+    # Document url - need for Jet Propulsion Laboratory 
     jpl_images_site = "https://spaceimages-mars.com/"
     browser.visit(jpl_images_site)
+
+    # Sleep - allowing time for data to load 
     time.sleep(1)
 
     jpl_image = browser.html
@@ -57,6 +56,26 @@ def scrape_info():
 
     featured_image_url = jpl_images_site + jpl_soup 
     featured_image_url
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     mars_info_html_table = []
