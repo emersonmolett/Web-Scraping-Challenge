@@ -125,13 +125,13 @@ def scrape_info():
 
 
       # Store data in a dictionary
-    scraped_data = {
+      scraped_data = {
         "news_title": news_title,
         "paragraph_text": paragraph_text,
         "featured_image_url": featured_image_url, 
-        "mars_info_html_table": mars_info_html_table,
+        "mars_html_table": mars_html_table,
         "hemi_dicts": hemi_dicts
-    }
+      }
 
     # Close the browser after scraping
     browser.quit()
