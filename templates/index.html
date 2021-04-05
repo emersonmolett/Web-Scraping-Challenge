@@ -17,6 +17,13 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
     </div>
     
+    <div class='container'>
+      <div class="row">
+          <div class="col-lg-8">
+              <h2>Featured Mars Image</h2>
+              <p>Taken from <a href="https://spaceimages-mars.com/" target="_blank"> NASA JPL</a></p>
+              <img src="{{ mars.featured_image_url }}" width="100%" alt="featured mars image">
+          </div>
     <h2>Additional Mars Information:</h2>
     <h3>News: {{ mars.news_title }}</h3>
     <h3>Paragrah: {{ mars.paragraph_text }}</h3>
