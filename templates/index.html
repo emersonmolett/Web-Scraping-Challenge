@@ -21,7 +21,7 @@
     <h3>News: {{ mars.news_title }}</h3>
     <h3>Paragrah: {{ mars.paragraph_text }}</h3>
     <h3>Image: {{ mars.featured_image_url }}</h3>
-    <h3>Mars Data: {{ mars.mars_html_table }}</h3>
+    <h3>Mars Data: {{ mars.mars_html_table | safe }}</h3>
     <h3>Hemispheres: {{ mars.hemi_dicts}} </h3>
   </div>
   </div>
