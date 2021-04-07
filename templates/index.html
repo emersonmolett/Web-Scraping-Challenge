@@ -16,22 +16,39 @@
       <p>Scrape New Data</p>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
     </div>
-    
+
+
+    <!--FEATURED IMAGE-->
+
     <div class='container'>
       <div class="row">
-          <div class="col-lg-8">
-              <h2>Featured Mars Image</h2>
-              <p>Taken from <a href="https://spaceimages-mars.com/" target="_blank"> NASA JPL</a></p>
-              <img src="{{ mars.featured_image_url }}" width="100%" alt="featured mars image">
+        <div class="col-lg-8">
+          <h2>Featured Mars Image</h2>
+          <p>Taken from <a href="https://spaceimages-mars.com/" target="_blank"> Jet Propulsion Laboratory (JPL)</a></p>
+          <img src="{{ mars.featured_image_url }}" width="100%" alt="featured mars image">
+          <h3>News: {{ mars.news_title }}</h3>
+          <h3>Paragraph: {{ mars.paragraph_text }}</h3>
+        </div>
+        <div class="container">
+          <h3>Mars Data: {{ mars.mars_html_table | safe }}</h3>
+        </div>
+        <!-- Section for Mars Hemispheres -->
+        <div class="row" id="mars-hemispheres">
+          <div class="page-header">
+            <h2 class="text-center">Mars Hemispheres</h2>
           </div>
-    <h2>Additional Mars Information:</h2>
-    <h3>News: {{ mars.news_title }}</h3>
-    <h3>Paragrah: {{ mars.paragraph_text }}</h3>
-    <h3>Image: {{ mars.featured_image_url }}</h3>
-    <h3>Mars Data: {{ mars.mars_html_table | safe }}</h3>
-    <h3>Hemispheres: {{ mars.hemi_dicts}} </h3>
-  </div>
-  </div>
+          {% for hemisphere in mars.hemi_dicts %}
+          <div class="col-md-3">
+            <div class="thumbnail">
+              <img src="{{hemisphere.img_url}}" alt="...">
+              <div class="caption">
+                <h3>{{hemisphere.title}}</h3>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
 </body>
 
 </html>

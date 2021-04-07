@@ -123,9 +123,9 @@ def scrape_info():
 
       hemi_dicts.append(hemi_dict)
 
-
+    print(hemi_dicts)
       # Store data in a dictionary
-      scraped_data = {
+    scraped_data = {
         "news_title": news_title,
         "paragraph_text": paragraph_text,
         "featured_image_url": featured_image_url, 
