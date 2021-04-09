@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup as bs
 from splinter import Browser 
 from webdriver_manager.chrome import ChromeDriverManager
 
+    # Worked on troubleshooting syntax with t/a
 
 def scrape_info():
     # Set up Splinter

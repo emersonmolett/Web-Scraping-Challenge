@@ -27,8 +27,7 @@ def scrape():
     # Run the scrape function
     mars_data = scrape_mars.scrape_info()
     
-    # call the scrape() function you imported above 
-    #mars_data = scrape_mars.scrape()
+    # Worked with t/a to ensure data was was loading into MongoDB properly
 
     # Update the Mongo database using update and upsert=True
     mars.update({}, mars_data, upsert=True)
