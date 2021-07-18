@@ -1,4 +1,4 @@
-Building off my HTML knowledge, this assignment builds a web application that scrapes various websites for data related to the planet Mars. This information is displayed in a single HTML page. The assignment uses Jupyter Notbook, Python, Flask, BeautifulSoup, and MongoDB.
+Building off my HTML knowledge, this assignment creates a web application that scrapes various websites for data related to the planet Mars. This information is displayed in a single HTML page. The assignment uses Jupyter Notbook, Python, Flask, BeautifulSoup, and MongoDB.
 <br>
 
 Web Scraping in Jupyter Notebook:</br>
